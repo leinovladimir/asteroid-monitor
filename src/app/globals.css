@@ -1,3 +1,74 @@
 :root {
-  --bg-color: #000;
+  --Black: #000;
+  --White-Base: #fff;
+  --Orange-Base: #f86600;
+  --Orange-Smooth: #rgba(248, 102, 0, 0.3);
+  --gray-30: #e3e5e5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 12px;
+}
+
+body {
+  background-color: var(--Black);
+  font-size: 1rem;
+  color: var(--White-Base);
+  font-family: Helvetica;
+}
+
+h1 {
+  font-size: 2.3rem;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 2.6rem;
+}
+
+button {
+  background-color: rgba(248, 102, 0, 0.15);
+  color: var(--Orange-Base);
+  transition: all 100ms ease;
+  border-radius: 1rem;
+  padding: 0.1rem 1rem;
+  border: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.8;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+button:hover {
+  color: var(--White-Base);
+  background-color: var(--Orange-Base);
+}
+
+.earth {
+  position: fixed;
+  left: 0px;
+  top: 10rem;
+}
+
+.love {
+  width: 200px;
+  height: 40px;
+  margin: auto 0;
+  border-radius: 1rem;
+  padding: 0.1rem 1rem;
+  border: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.8;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-right: 0.5rem;
 }

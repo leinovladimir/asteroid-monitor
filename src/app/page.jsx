@@ -30,7 +30,7 @@ export default async function Home() {
       />
       <h1>Ближайшие подлёты астероидов</h1>
       <span>в километрах | в лунных орбитах</span>
-      <List className={styles.container} stars={...stars} />
+      <List className={styles.container} stars={[...stars]} />
       <AddMore />
     </>
   );

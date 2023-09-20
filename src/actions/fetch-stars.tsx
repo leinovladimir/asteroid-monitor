@@ -38,7 +38,7 @@ const formatData = (data: any) => {
     lunar: `${parseFloat(lunar)
       .toFixed(0)
       .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} лунных оборотов`,
-    astroSize: (diametr > 100) ? 1 : 0.6,
+    astroSize: (parseInt(diametr) > 100) ? 1 : 0.6,
     name: name.replace(/[()]/g, ''),
     diametr,
     isPotentiallyHazardous: is_potentially_hazardous_asteroid,

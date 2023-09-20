@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 
 import { fetchStars } from '@/actions/fetch-stars';
-import { useInView } from "react-intersection-observer";
+import { useInView } from 'react-intersection-observer';
 
 import styles from '@/app/page.module.css';
 import List from '@/app/components/List';
@@ -27,10 +27,11 @@ const AddMore = () => {
     console.log(date, stars);
   };
 
-    useEffect(() => {
+  useEffect(() => {
     if (inView) {
       loadMoreStars();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView]);
 
   return (

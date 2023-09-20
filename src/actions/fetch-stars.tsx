@@ -1,10 +1,9 @@
-"use server";
+'use server';
 import axios from 'axios';
-import {formatDate} from "@/utils/index"
+import { formatDate } from '@/utils/index';
 const NASA_URL = 'https://api.nasa.gov/neo/rest/v1/feed';
 
 // export const revalidate = 3600 // revalidate the data at most every hour
-
 
 const formatData = (data: any) => {
   const {
@@ -38,7 +37,7 @@ const formatData = (data: any) => {
     lunar: `${parseFloat(lunar)
       .toFixed(0)
       .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} лунных оборотов`,
-    astroSize: (parseInt(diametr) > 100) ? 1 : 0.6,
+    astroSize: parseInt(diametr) > 100 ? 1 : 0.6,
     name: name.replace(/[()]/g, ''),
     diametr,
     isPotentiallyHazardous: is_potentially_hazardous_asteroid,
@@ -52,7 +51,9 @@ export const fetchStars = async (date = new Date()) => {
   try {
     console.log(endpoint);
     // const res = await fetch(endpoint);
-    const res = await fetch(endpoint, { next: { revalidate: 1 } });
+    const res = await fetch(endpoint, {
+      next: { revalidate: 43200 },
+    });
     if (res.ok) {
       const rateLimitRemaining = res.headers.get(
         'x-ratelimit-remaining'
@@ -61,7 +62,6 @@ export const fetchStars = async (date = new Date()) => {
     } else {
       throw new Error('Failed to fetch data');
     }
-
 
     if (!res.ok) {
       throw new Error('Failed to fetch data');

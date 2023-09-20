@@ -51,7 +51,7 @@ export const fetchStars = async (date = new Date()) => {
 
   try {
     const res = await fetch(endpoint, {
-      next: { revalidate: 10 },
+      next: { revalidate: 460000 },
     });
     if (res.ok) {
       const rateLimitRemaining = res.headers.get(
@@ -64,7 +64,6 @@ export const fetchStars = async (date = new Date()) => {
         'X-Vcap-Request-Id:',
         requestId
       );
-
     } else {
       throw new Error('Failed to fetch data');
     }
@@ -83,6 +82,4 @@ export const fetchStars = async (date = new Date()) => {
     console.error('Error fetching data:', error);
     return null;
   }
-
-
 };

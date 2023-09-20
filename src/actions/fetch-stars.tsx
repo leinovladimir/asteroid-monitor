@@ -45,20 +45,26 @@ const formatData = (data: any) => {
 };
 
 export const fetchStars = async (date = new Date()) => {
+  const startTime = performance.now();
   const currentDay = date.toISOString().split('T')[0];
   const endpoint = `${NASA_URL}?start_date=${currentDay}&end_date=${currentDay}&api_key=${process.env.NASA_API_KEY}`;
 
   try {
-    console.log(endpoint);
-    // const res = await fetch(endpoint);
     const res = await fetch(endpoint, {
-      next: { revalidate: 43200 },
+      next: { revalidate: 10 },
     });
     if (res.ok) {
       const rateLimitRemaining = res.headers.get(
         'x-ratelimit-remaining'
       );
-      console.log('x-ratelimit-remaining:', rateLimitRemaining);
+      const requestId = res.headers.get('X-Vcap-Request-Id');
+      console.log(
+        'remaining:',
+        rateLimitRemaining,
+        'X-Vcap-Request-Id:',
+        requestId
+      );
+
     } else {
       throw new Error('Failed to fetch data');
     }
@@ -70,10 +76,13 @@ export const fetchStars = async (date = new Date()) => {
     const data = await res.json();
     const rawStars = data.near_earth_objects[currentDay];
     const formattedStars = rawStars.map(formatData);
-
+    const endTime = performance.now();
+    console.log(`Fetch took ${endTime - startTime} milliseconds`);
     return formattedStars;
   } catch (error) {
     console.error('Error fetching data:', error);
     return null;
   }
+
+
 };

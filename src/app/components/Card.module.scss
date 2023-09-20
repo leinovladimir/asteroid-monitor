@@ -1,6 +1,6 @@
 .asteroidCard {
   width: 26rem;
-  margin: 2rem 0;
+  margin: 1rem 0;
   gap: 0.6rem;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@
 .distant_number {
   font-size: 1.3rem;
   line-height: 150%;
-  margin-bottom: 0.6rem;
+
 }
 
 .distant_box {
@@ -38,7 +38,8 @@
 
 .arrow {
   width: 100%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  color:rgba(255, 255, 255, 0.5);
+  // border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .name {

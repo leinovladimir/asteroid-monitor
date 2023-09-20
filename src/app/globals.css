@@ -21,6 +21,8 @@ body {
   font-size: 1rem;
   color: var(--White-Base);
   font-family: Helvetica;
+  max-width: 320px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -53,6 +55,7 @@ button:hover {
 }
 
 .earth {
+  display: none;
   position: fixed;
   left: 0px;
   top: 10rem;
@@ -71,4 +74,103 @@ button:hover {
   letter-spacing: 1px;
   cursor: pointer;
   margin-right: 0.5rem;
+}
+
+.spinner {
+      border: 4px solid rgba(255, 255, 255, 0.1);
+      width: 50px;
+      height: 50px;
+      margin: 0 auto;
+      margin-top: 20px;
+      border-radius: 50%;
+      border-left-color: #ffffff;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .dangerous {
+      margin-left: 1rem;
+      color: yellow;
+    }
+
+    /* the container for the dots */
+.loader{
+	position:relative; /* dots are positioned against the container */
+	overflow:hidden; /* dots should not be visible beyond the container */
+	/* container styles: feel free to change */
+	width: 100%;
+	height: 50px;
+}
+
+/* the dots */
+.loader div{
+	position:absolute;
+	left:-5%; /* at first they are hidden to the left of the container */
+
+	/* -webkit- prefix is required to support Chrome etc. */
+	-webkit-animation-name: horizontal-loader; /* the name of the animation */
+	animation-name: horizontal-loader;
+
+	-webkit-animation-duration: 2s; /* self-explanatory :) */
+	animation-duration: 2s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-timing-function: cubic-bezier(0,.67,.99,0); /* feel free to fine tune the easing */
+	animation-timing-function: cubic-bezier(0, 0.870, 1.000, 0.3);
+	animation-iteration-count:infinite;
+	-webkit-animation-iteration-count:infinite;
+
+	/* dot styles: feel free to change */
+	width: 1rem;
+	height: 1rem;
+	background: #fff;
+	border-radius: 100%;
+	top:20px;
+}
+
+/* these delays control the distance between dots */
+.loader div:nth-child(2){
+	-webkit-animation-delay: .4s;
+	animation-delay: .4s;
+
+}
+.loader div:nth-child(3){
+	-webkit-animation-delay: .8s;
+	animation-delay: .8s;
+
+}
+.loader div:nth-child(4){
+	-webkit-animation-delay: 1.4s;
+	animation-delay: 1.4s;
+
+}
+.loader div:nth-child(5){
+	-webkit-animation-delay: 1.8s;
+	animation-delay: 1.8s;
+
+}
+.loader div:nth-child(6){
+	-webkit-animation-delay: 2.4s;
+	animation-delay: 2.4s;
+
+}
+
+/* declaration of the animation */
+/* the values 10% and 90% (which is just 100%-10%) control the delay between animation loops */
+@-webkit-keyframes horizontal-loader {
+	10%, 90.01% {left:-5%;}
+	90% {left:110%;}
+}
+
+@keyframes horizontal-loader {
+	10%, 90.01% {left:-5%;}
+	90% {left:110%;}
 }

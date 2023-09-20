@@ -15,11 +15,13 @@ export default async function Home() {
   return (
     <>
       <header>
-        <h1>ARMAGEDDON 2023</h1>
-        <p>
+        <br />
+
+        <h1>Ближайшие подлёты астероидов</h1>
+        {/* <p>
           ООО “Команда им. Б. Уиллиса”. Взрываем астероиды с 1998
           года.
-        </p>
+        </p> */}
       </header>
       <Image
         src="/img/earth.png"
@@ -28,8 +30,8 @@ export default async function Home() {
         className="earth"
         alt="earth"
       />
-      <h1>Ближайшие подлёты астероидов</h1>
-      <span>в километрах | в лунных орбитах</span>
+      <br />
+      {/* <span>в километрах | в лунных орбитах</span> */}
       <List className={styles.container} stars={[...stars]} />
       <AddMore />
     </>

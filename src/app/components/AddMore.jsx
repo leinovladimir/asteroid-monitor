@@ -37,7 +37,17 @@ const AddMore = () => {
   return (
     <>
       <List className={styles.container} stars={[...stars]} />
-      <div ref={ref} className="love" onClick={loadMoreStars}></div>
+      <div
+        className="loader"
+        ref={ref}
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </>
   );
 };

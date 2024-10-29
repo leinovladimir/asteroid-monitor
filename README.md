@@ -7,3 +7,5 @@ Feat: infinite scroll with pulling data from server using server actions.
 TODO: Какие технологии иcпользовались?
 TODO: Запустить и посмотреть в каком состояние сейчас проект 
 TODO: Написать документацию по запуску
+TODO: Прикрутить ссылочку с демо
+
